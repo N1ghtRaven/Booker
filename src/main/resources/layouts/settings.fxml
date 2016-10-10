@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="349.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.zaddrot.booker.ui.SettingApp">
+   <children>
+      <Group layoutX="14.0" layoutY="14.0">
+         <children>
+            <TextField fx:id="tokenField" prefHeight="25.0" prefWidth="244.0" promptText="OAUTH2 TOKEN" />
+            <Hyperlink fx:id="tokenLink" layoutX="85.0" layoutY="25.0" onAction="#onGetToken" onMouseEntered="#onGetTokenSelected" onMouseExited="#onGetTokenUnselected" opacity="0.3" text="Нет токена?" />
+         </children>
+      </Group>
+      <Button layoutX="263.0" layoutY="14.0" mnemonicParsing="false" onAction="#onSave" text="Сохранить" />
+      <Group layoutX="14.0" layoutY="62.0">
+         <children>
+            <CheckBox fx:id="mouthBox" mnemonicParsing="false" text="Top Month" textFill="#4d4d4d" />
+            <CheckBox fx:id="dayBox" layoutY="27.0" mnemonicParsing="false" text="Top Day" textFill="#434343" />
+         </children>
+      </Group>
+      <Button layoutX="242.0" layoutY="85.0" mnemonicParsing="false" onAction="#onClear" text="Очистить базу" />
+      <Spinner fx:id="maxTop" layoutX="103.0" layoutY="60.0" prefHeight="25.0" prefWidth="65.0" visible="false" />
+   </children>
+</AnchorPane>

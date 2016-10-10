@@ -1,0 +1,9 @@
+{
+  auth:{
+    token: "0000000000000000"
+  },
+  properties:{
+    logTopMonth: false,
+    logTopDay: false
+  }
+}
