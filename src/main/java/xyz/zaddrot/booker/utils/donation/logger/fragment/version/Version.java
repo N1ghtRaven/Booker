@@ -22,7 +22,7 @@ public class Version {
             writeFile(Path.DAY_BASE.toFile(), "{}");
         }
 
-        if((time - getMonthTimestamp() >= new Seconds().getCurrentMonth() * 1000) || getMonthTimestamp() == 0){
+        if((time - getMonthTimestamp() >= new Seconds().getSecondBeforeMonth() * 1000) || getMonthTimestamp() == 0){
             writeFile(Path.VERSION_MONTH.toFile(), time);
             writeFile(Path.BASE.toFile(), "{}");
         }

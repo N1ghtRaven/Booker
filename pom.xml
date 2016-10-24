@@ -92,6 +92,12 @@
             <artifactId>snakeyaml</artifactId>
             <version>1.17</version>
         </dependency>
+        <!-- WebSocket Клиент -->
+        <dependency>
+            <groupId>org.glassfish.tyrus.bundles</groupId>
+            <artifactId>tyrus-standalone-client</artifactId>
+            <version>1.9</version>
+        </dependency>
     </dependencies>
 
 </project>

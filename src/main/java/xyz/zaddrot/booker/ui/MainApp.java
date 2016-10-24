@@ -16,6 +16,7 @@ import xyz.zaddrot.booker.utils.backup.Backupper;
 import xyz.zaddrot.booker.utils.backup.Dumper;
 import xyz.zaddrot.booker.utils.donation.alerts.DonationAlertsController;
 import xyz.zaddrot.booker.utils.donation.logger.DonationController;
+import xyz.zaddrot.booker.utils.math.MonthBefore;
 
 import java.awt.*;
 import java.awt.MenuItem;
@@ -54,7 +55,7 @@ public class MainApp extends Application {
         initLayout();
 
         this.mainStage.show();
-        trayHidding();
+        tray();
     }
 
     private void initLayout() throws IOException {
@@ -82,7 +83,7 @@ public class MainApp extends Application {
         SettingApp.getSettingStage().show();
     }
 
-    private void trayHidding(){
+    private void tray(){
         if(SystemTray.isSupported()) {
             PopupMenu menu = new PopupMenu();
 

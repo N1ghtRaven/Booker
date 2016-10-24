@@ -19,6 +19,8 @@ public class Token {
         try {
             token = encoder.decryptData(data.get("token").toString());
         }catch (NullPointerException e) { logger.warn(e); }
+
+        if(token == null) token = "0";
     }
 
     public String getToken() {

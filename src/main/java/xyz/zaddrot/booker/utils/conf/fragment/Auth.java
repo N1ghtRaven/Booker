@@ -24,14 +24,7 @@ public class Auth {
     private Properties properties;
 
     public Auth(){
-        if(!Path.PATH_TO_CFG.toFile().exists()){
-            Path.PATH_TO_DIR.toFile().mkdirs();
-            try {
-                String conf = getClass().getResource("/skeleton/cfg.yaml").getFile();
-                if(conf.startsWith("file:")) conf = conf.substring(6);
-                Files.copy(new File(conf).toPath(), Path.PATH_TO_CFG.toFile().toPath());
-            } catch (IOException e) { logger.error(e); }
-        }
+        initCfg();
 
         try{
             cfg = (Map<String, Map<String, Object>>) yaml.load(new FileInputStream(Path.PATH_TO_CFG.toFile()));
@@ -47,6 +40,26 @@ public class Auth {
 
     public Properties getProperties() {
         return properties;
+    }
+
+    private void initCfg(){
+        if(!Path.PATH_TO_CFG.toFile().exists()){
+            Path.PATH_TO_DIR.toFile().mkdirs();
+
+            Map<String, Object> init = new HashMap<>();
+            init.put("token", 0);
+
+            token = new Token(init);
+            init.clear();
+
+            init.put("logTopMonth", false);
+            init.put("logTopDay", false);
+
+            properties = new Properties(init);
+            init.clear();
+
+            dump();
+        }
     }
 
     public void dump(){

@@ -16,12 +16,13 @@ public enum Path {
 
     PATH_TO_OUT("out/"),
     PATH_TO_DAY("out/day.txt"),
-    PATH_TO_MONTH("out/month.txt"),
+    PATH_TO_MONTH_TOP_1("out/top1.txt"),
+    PATH_TO_MONTH_TOP_2("out/top2.txt"),
+    PATH_TO_MONTH_TOP_3("out/top3.txt"),
 
     VERSION_PATH("data/version/"),
     VERSION_DAY("data/version/day.ver"),
     VERSION_MONTH("data/version/month.ver");
-
 
 
     final private String request;

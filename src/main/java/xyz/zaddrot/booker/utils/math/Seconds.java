@@ -91,4 +91,8 @@ public class Seconds {
     private long getDecember() {
         return December;
     }
+
+    public long getSecondBeforeMonth(){
+        return (60 * 60 * 24) * MonthBefore.getDayBefore();
+    }
 }

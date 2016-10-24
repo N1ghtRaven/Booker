@@ -1,6 +1,8 @@
 package xyz.zaddrot.booker.utils.encrypt;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.engines.IDEAEngine;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;
@@ -17,6 +19,7 @@ import java.net.UnknownHostException;
  * Created by night on 14.06.2016.
  */
 public class Encoder {
+    final private Logger logger = LogManager.getLogger(getClass());
     private String getMac(){
         InetAddress ip;
         try {
@@ -43,9 +46,11 @@ public class Encoder {
         cipher.init(true, new KeyParameter(key.getBytes()));
         byte[] outBytes = new byte[cipher.getOutputSize(inBytes.length)];
         int len = cipher.processBytes(inBytes, 0, inBytes.length, outBytes, 0);
+
         try {
             cipher.doFinal(outBytes, len);
-        }catch(CryptoException e){}
+        }catch(CryptoException e){ logger.error(e); }
+
         return new String(Hex.encode(outBytes));
     }
     public String decryptData(String text){
@@ -57,10 +62,10 @@ public class Encoder {
 
             try {
                 cipher.doFinal(outBytes, len1);
-            } catch (CryptoException ignore) {}
+            }catch(CryptoException ignore){}
 
             return new String(outBytes).trim();
-        }catch (ArrayIndexOutOfBoundsException e) { e.printStackTrace(); }
+        }catch (ArrayIndexOutOfBoundsException e) { logger.warn(e); }
         return null;
     }
 }

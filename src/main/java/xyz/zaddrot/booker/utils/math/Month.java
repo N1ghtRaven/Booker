@@ -1,5 +1,8 @@
 package xyz.zaddrot.booker.utils.math;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by NightBook on 06.10.2016.
  */
@@ -45,5 +48,23 @@ class Month {
     }
     int getDecember() {
         return December;
+    }
+
+    public Map<Integer, Integer> getMonthMap(){
+        Map<Integer, Integer> monthMap = new HashMap<>();
+        monthMap.put(1, getJanuary());
+        monthMap.put(2, getFebruary());
+        monthMap.put(3, getMarch());
+        monthMap.put(4, getApril());
+        monthMap.put(5, getMay());
+        monthMap.put(6, getJune());
+        monthMap.put(7, getJuly());
+        monthMap.put(8, getAugust());
+        monthMap.put(9, getSeptember());
+        monthMap.put(10, getOctober());
+        monthMap.put(11, getNovember());
+        monthMap.put(12, getDecember());
+
+        return monthMap;
     }
 }

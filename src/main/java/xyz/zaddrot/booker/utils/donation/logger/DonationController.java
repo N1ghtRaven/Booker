@@ -41,11 +41,23 @@ public class DonationController {
     }
 
     private void outTopMonth(List<DonationImpl> base){
-        String data = "";
-        for(int i = 0; i < 3;++i)if(i <= base.size()) data += base.get(i).getUsername() + " - " + base.get(i).getAmount() + "р." + "\r\n";
-
-        //for (Donation donation: base) data += donation.getUsername() + " - " + donation.getAmount() + "р." + "\r\n";
-        writeFile(Path.PATH_TO_MONTH.toFile(), data);
+        String data;
+        for(int i = 1; i < 3;++i) {
+            if(i <= base.size()) {
+                data = base.get(i).getUsername() + " - " + base.get(i).getAmount() + "р." + "\r\n";
+                switch (i) {
+                    case 1:
+                        writeFile(Path.PATH_TO_MONTH_TOP_1.toFile(), data);
+                        break;
+                    case 2:
+                        writeFile(Path.PATH_TO_MONTH_TOP_2.toFile(), data);
+                        break;
+                    case 3:
+                        writeFile(Path.PATH_TO_MONTH_TOP_3.toFile(), data);
+                        break;
+                }
+            }
+        }
     }
     private void outTopDay(List<DonationImpl> base){
         String data = "";
